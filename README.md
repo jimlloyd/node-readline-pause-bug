@@ -1,6 +1,9 @@
 node-readline-pause-bug
 =======================
 
+Note: failing Travis build due to readline bug:
+[![Build Status](https://travis-ci.org/jimlloyd/node-readline-pause-bug.svg)](https://travis-ci.org/jimlloyd/node-readline-pause-bug)
+
 A demonstration of a bug in node's readline.
 
 Run 'make' to produce output demonstrating the bug.
