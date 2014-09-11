@@ -1,0 +1,25 @@
+{
+  "name": "node-readline-pause-bug",
+  "version": "0.0.0",
+  "description": "A demonstration of a bug in node's readline.",
+  "bin": "./readline-pause-bug.js",
+  "scripts": {
+    "test": "make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimlloyd/node-readline-pause-bug.git"
+  },
+  "keywords": [
+    "readline",
+    "pause",
+    "bug",
+    "demonstration"
+  ],
+  "author": "Jim Lloyd <jim.lloyd@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimlloyd/node-readline-pause-bug/issues"
+  },
+  "homepage": "https://github.com/jimlloyd/node-readline-pause-bug"
+}
