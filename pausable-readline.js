@@ -6,7 +6,9 @@ var Interface = rl.Interface;
 
 function PausableInterface(input, output, completer, terminal) {
   var self = this;
-  this.lineReader = input.pipe(es.split());
+  this.rawinput = input;
+  this.splitter = es.split();
+  this.lineReader = this.rawinput.pipe(this.splitter);
   this.wrappedInput = this.lineReader
     .pipe(es.map(function(line, cb) {
       if (line.indexOf('\n') !== -1) {
@@ -18,6 +20,14 @@ function PausableInterface(input, output, completer, terminal) {
   );
 
   Interface.call(this, this.wrappedInput, output, completer, terminal);
+
+  if (terminal) {
+    this._setRawMode(this.rawinput);
+    rl.emitKeypressEvents(this.rawinput);
+    rl.emitKeypressEvents(this.lineReader);
+    rl.emitKeypressEvents(this.splitter);
+    rl.emitKeypressEvents(this.wrappedInput);
+  }
 }
 
 inherits(PausableInterface, Interface);
@@ -59,4 +69,3 @@ PausableInterface.prototype.prompt = function(preserveCursor) {
     this.output.write(this._prompt);
   }
 };
-

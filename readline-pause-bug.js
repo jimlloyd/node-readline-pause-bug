@@ -14,8 +14,10 @@
 'use strict';
 
 var readline = require('./pausable-readline');
+//var readline = require('readline');
 
-var rl = readline.createInterface(process.stdin, process.stdout);
+// var rl = readline.createInterface(process.stdin, process.stdout);
+var rl = readline.createInterface(process.stdin, process.stdout, undefined, true);
 
 var useAsync = process.argv.length>2 && process.argv[2]==='async';
 
