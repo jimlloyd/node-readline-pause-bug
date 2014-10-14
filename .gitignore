@@ -1,3 +1,4 @@
 differences.txt
 test.async.output
 test.sync.output
+node_modules/

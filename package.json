@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/jimlloyd/node-readline-pause-bug/issues"
   },
-  "homepage": "https://github.com/jimlloyd/node-readline-pause-bug"
+  "homepage": "https://github.com/jimlloyd/node-readline-pause-bug",
+  "dependencies": {
+    "event-stream": "^3.1.7"
+  }
 }

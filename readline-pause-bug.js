@@ -13,7 +13,7 @@
 
 'use strict';
 
-var readline = require('readline');
+var readline = require('./pausable-readline');
 
 var rl = readline.createInterface(process.stdin, process.stdout);
 
@@ -23,6 +23,9 @@ rl.setPrompt('OHAI> ');
 rl.prompt();
 
 rl.on('line', function(line) {
+
+    if (line[line.length-1] == '\n')
+      console.error('Line should not end with newline here!!');
 
     function respond() {
         process.stdout.write('==> ' + line + '\n');
