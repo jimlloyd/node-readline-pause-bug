@@ -6,9 +6,7 @@ var Interface = rl.Interface;
 
 function PausableInterface(input, output, completer, terminal) {
   var self = this;
-  var splitter = es.split();
-  splitter.objectMode = true;
-  this.lineReader = input.pipe(splitter);
+  this.lineReader = input.pipe(es.split());
   this.wrappedInput = this.lineReader
     .pipe(es.map(function(line, cb) {
       if (line.indexOf('\n') !== -1) {
@@ -38,8 +36,6 @@ exports.createInterface = function(input, output, completer, terminal) {
 
 PausableInterface.prototype.pause = function() {
   if (this.paused) return;
-//   console.warn('pause');
-  this.input.pause();
   this.lineReader.pause();
   this.paused = true;
   this.emit('pause');
@@ -48,8 +44,6 @@ PausableInterface.prototype.pause = function() {
 
 PausableInterface.prototype.resume = function() {
   if (!this.paused) return;
-//   console.warn('resume');
-  this.input.resume();
   this.lineReader.resume();
   this.paused = false;
   this.emit('resume');
